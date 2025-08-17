@@ -3,38 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[NOMBRE DEL PERSONAJE]</title>
-    <!-- CSS DE LA FICHA (EL ANTIGUO) -->
+    <title>Bom-seok</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <!-- CSS DE LA PORTADA (EL NUEVO) -->
-    <link href="splash_style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Mate+SC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Patrick+Hand&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- ================================== -->
-    <!-- === NUEVA PORTADA DE ENTRADA === -->
-    <!-- ================================== -->
-    <div id="splash-screen" class="splash-screen-male">
-        <div class="splash-content">
-            <img src="[URL DE LA IMAGEN PRINCIPAL DEL PERSONAJE]" alt="Retrato del Personaje" class="splash-char-image">
-            <h1 class="splash-title">[TÍTULO O NOMBRE DEL PERSONAJE]</h1>
-            <p class="splash-quote">"[FRASE O CITA CORTA DEL PERSONAJE]"</p>
-            <button id="enter-btn" class="enter-btn-male">Explorar Ficha</button>
-        </div>
-    </div>
-
-    <!-- ============================================== -->
-    <!-- === TU FICHA DE PERSONAJE (CÓDIGO ANTIGUO) === -->
-    <!-- ============================================== -->
-    <div class="card-wrapper" style="display: none; opacity: 0;">
-        <!-- Pega aquí TODO el código de tu ficha de personaje, 
-             desde <div id="preloader">... hasta el final de <div id="links-tab">... 
-             ¡El código que me diste en la primera pregunta! -->
     <div id="preloader"><img src="running_sticker.png" class="loader-sticker" alt="Cargando..."><p>Cargando Ficha...</p></div>
     <div class="card-wrapper">
         <div class="card-content">
@@ -92,10 +68,45 @@ El universo tiene un sentido del humor jodidamente retorcido. La única persona 
         <div id="stats-tab" class="overlay-pane"><h2><i class="fas fa-chart-pie doodle-spin"></i> Análisis</h2><div class="stats-grid"><div class="stat-item"><span>🤬 HDP</span><div class="stat-bar"><div class="fill hdp" data-p="75"></div></div><span>75%</span></div><div class="stat-item"><span>🥀 Angst</span><div class="stat-bar"><div class="fill angst" data-p="95"></div></div><span>95%</span></div><div class="stat-item"><span>✨ Fantasía</span><div class="stat-bar"><div class="fill fantasia" data-p="20"></div></div><span>20%</span></div><div class="stat-item"><span>🌶️ Cochino</span><div class="stat-bar"><div class="fill cochino" data-p="60"></div></div><span>60%</span></div><div class="stat-item"><span>🎭 Drama</span><div class="stat-bar"><div class="fill drama" data-p="90"></div></div><span>90%</span></div><div class="stat-item"><span>💌 Amor</span><div class="stat-bar"><div class="fill amor" data-p="85"></div></div><span>85%</span></div><div class="stat-item"><span>🧠 Locura</span><div class="stat-bar"><div class="fill locura" data-p="70"></div></div><span>70%</span></div></div><div class="close-btn" data-tab="stats-tab"><i class="fas fa-times"></i></div></div>
         <div id="links-tab" class="overlay-pane"><h2><i class="fas fa-link doodle-pulse"></i> Plataformas</h2><div class="links-grid"><a href="https://janitorai.com/characters/02071b20-8784-4dd3-bc00-c57c7bda874a_character-bom-seok" class="link-janitor"><i class="fas fa-robot"></i> Janitor AI</a><a href="card.png" download="Bom-seok.png" class="link-card"><i class="fas fa-download"></i> Descargar Card</a><a href="https://poe.com/Han_Bom-seok" class="link-haiku"><i class="fas fa-feather-alt"></i> Poe Haiku</a><a href="https://poe.com/Han_Bom-seokS" class="link-sonnet"><i class="fas fa-moon"></i> Poe Sonnet</a><a href="https://chub.ai/characters/ElBachira/bom-seok-04c001c95759" class="link-chub"><i class="fas fa-cubes"></i> Chub</a><a href="https://es.cvdk.io/c/DWHdRr8_QgqvCQJWmR3m6g?rc=undefined" class="link-caveduck"><i class="fas fa-dungeon"></i> Caveduck</a></div><div class="close-btn" data-tab="links-tab"><i class="fas fa-times"></i></div></div>
     </div>
-
-    <!-- SCRIPT DE LA FICHA (EL ANTIGUO) -->
     <script src="script.js"></script>
-    <!-- SCRIPT DE LA PORTADA (EL NUEVO) -->
-    <script src="splash_script.js"></script>
+
+    <!-- =================================================== -->
+    <!-- === SCRIPT PARA CARGAR BOTS DINÁMICAMENTE (NUEVO) === -->
+    <!-- =================================================== -->
+    <!-- 1. Importamos la lista PÚBLICA desde tu repositorio central -->
+    <script src="https://elbachira.github.io/bots.js?v=1.0"></script> 
+    
+    <!-- 2. El resto del script que genera los iconos -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Buscamos los contenedores que creamos en el HTML
+            const masculinosContainer = document.getElementById('bots-masculinos');
+            const femeninosContainer = document.getElementById('bots-femeninos');
+
+            // Nombre del bot actual (para que no se muestre a sí mismo en la lista)
+            const nombreDelBotActual = "Bom-seok"; // Cambia esto en cada ficha
+
+            // Recorremos la lista BOTS_LIST que está en el archivo bots.js
+            BOTS_LIST.forEach(bot => {
+                // Solo creamos el icono si el nombre del bot no es el de la página actual
+                if (bot.nombre !== nombreDelBotActual) {
+                    const botHtml = `
+                        <a href="${bot.url}" class="char-icon">
+                            <img src="${bot.imagen}" alt="${bot.nombre}">
+                            <span class="char-name">${bot.nombre}</span>
+                        </a>
+                    `;
+
+                    // Comprobamos su género y lo añadimos al contenedor correcto
+                    if (bot.genero === 'masculino') {
+                        masculinosContainer.innerHTML += botHtml;
+                    } else if (bot.genero === 'femenino') {
+                        femeninosContainer.innerHTML += botHtml;
+                    }
+                }
+            });
+        });
+    </script>
+    
 </body>
-</html>
+    </html>
