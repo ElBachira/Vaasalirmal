@@ -1,0 +1,76 @@
+/* --- Estilos para la Portada Masculina --- */
+.splash-screen-male {
+    position: fixed;
+    inset: 0;
+    background-color: #1a1814;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.transparenttextures.com/patterns/leather.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 1s ease-out, visibility 1s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.splash-screen-male.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-content {
+    text-align: center;
+    color: #e3dcd2;
+    animation: fadeInContent 2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInContent {
+    to { opacity: 1; }
+}
+
+.splash-char-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #b4864c;
+    box-shadow: 0 0 30px #b4864c, inset 0 0 15px rgba(0,0,0,0.5);
+    margin-bottom: 1.5rem;
+}
+
+.splash-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    text-shadow: 0 0 10px #b4864c;
+    margin: 0;
+}
+
+.splash-quote {
+    font-family: 'Mate SC', serif;
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem 0;
+    max-width: 400px;
+}
+
+.enter-btn-male {
+    background-color: transparent;
+    border: 2px solid #b4864c;
+    color: #e3dcd2;
+    padding: 1rem 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(180, 134, 76, 0.5);
+}
+
+.enter-btn-male:hover {
+    background-color: #b4864c;
+    color: #1a1814;
+    box-shadow: 0 0 25px #b4864c;
+    transform: scale(1.05);
+}
